@@ -1,0 +1,388 @@
+እስካሁን ድረስ Dual boot windows & kali እንደምጠቀም ታቃለህ ነገር ግን ከባለፈው ጀምሮ ፒሲውን ስከፍት ወደ windows  ብቻ ነው እየገባ ያለው እንደበፊቱ አያስመርጠኝም
+አዎ፣ አስታውሳለሁ። የአንተ Lenovo ThinkPad T14s Gen 3 (i7-1265U, 16GB RAM, 512GB SSD) ላይ Windows 11 እና Kali Linux በDual Boot እንደምትጠቀም አውቃለሁ። Kali Linux በቀጥታ በፒሲው ላይ ነው የተጫነው፣ Virtual Machine አይደለም።
+
+አሁን የሚያጋጥምህ ችግር ፒሲው ሲከፈት የ GRUB Boot Menu ሳያሳይ በቀጥታ Windows 11 ውስጥ መግባቱ ነው።
+
+ይህ ማለት Kali Linux ተሰርዟል ማለት አይደለም። የKali ፋይሎች እና ፓርቲሽኖች እንዳሉ ሆነው፣ የBoot ቅደም ተከተሉ ተቀይሮ ወይም GRUB ከUEFI Boot ዝርዝር ተወግዶ ሊሆን ይችላል።
+
+አሁን ምንም ነገር ከመቀየራችን በፊት ምክንያቱን እንመርምር። የWindows ፓርቲሽኖችን ወይም የKali ፋይሎችን መሰረዝ አያስፈልገንም።
+
+ደረጃ 1፦ Kali Linux ከBoot Menu ውስጥ እንፈልግ
+Product Specifications Reference(PSREF) Product
+1. ፒሲውን Restart አድርግ
+
+Windows ውስጥ Start → Power → Restart የሚለውን ተጫን።
+
+Как запустить установку Windows с флешки через BIOS и Boot Menu - Интернет-магазин Softnet.Su
+2. F12 ተጫን
+
+የLenovo ምልክት ሲታይ F12ን ብዙ ጊዜ ተጫን። ካልሰራ Fn + F12 ሞክር።
+
+fedora - How to reinstall GRUB on a different device/partition? - Unix & Linux Stack Exchange
+3. የሚታየውን ዝርዝር ተመልከት
+
+Kali Linux, kali, GRUB ወይም Linux Boot Manager የሚል አማራጭ ካለ ምረጥ። ካልታየ አሁን ምንም አትቀይር።
+
+ከዚያ የሚከተለውን ንገረኝ
+1. F12 ስትጫን ምን ታያለህ?
+
+
+Windows Boot Manager ብቻ ይታያል
+
+Kali / GRUB ይታያል
+
+ሌላ ነገር ይታያል
+
+F12 ብጫንም ምንም ሜኑ አይመጣም
+2. ችግሩ ከመጀመሩ በፊት ከሚከተሉት አንዱ ተከስቶ ነበር?
+
+
+Windows Update ወይም Upgrade አድርጌ ነበር
+
+BIOS / Boot Settings ቀይሬ ነበር
+
+ድንገት ጠፍቶ ወይም ከRestart በኋላ ጀመረ
+
+ምንም አላደረግኩም፤ በራሱ ጀመረ
+ከዚህ ውጤት በኋላ GRUB የተደበቀ እንደሆነ፣ UEFI የBoot ቅደም ተከተል እንደተቀየረ ወይም የKali Bootloader ጥገና እንደሚያስፈልግ እንለያለን።
+
+
+1 selection
+1. F12 ስትጫን ምን ታያለህ?
+
+Kali
+
+Windows Boot Manager                                  and finnaly NVMe.......
+ጥሩ! ይህ ጠቃሚ መረጃ ነው። በThinkPad T14s Gen 3 ላይ F12 ስትጫን Kali, Windows Boot Manager እና NVMe እየታዩ ከሆነ፣ የKali Boot አማራጭ በBoot Menu ውስጥ አሁንም አለ። ስለዚህ Kali ተሰርዟል ብለን አንወስንም።
+
+አሁን ይህን ሞክር
+ፒሲውን Restart አድርግ።
+
+የLenovo ምልክት ሲታይ F12 ተጫን።
+
+በዝርዝሩ ውስጥ Kali የሚለውን ምረጥና Enter ተጫን።
+
+ከዚያ ምን እንደሚከሰት ተመልከት።
+
+Kali ከተከፈተ፦ የKali ስርዓትህ እንዳለ እና Boot ማድረግ እንደሚችል እናውቃለን። ቀጥሎ GRUB ሜኑ በመደበኛ ጅማሬ እንዲታይ እንጠግናለን።
+
+Kali ካልተከፈተ፦ የሚታየውን የስህተት መልዕክት ንገረኝ።
+
+አስፈላጊ፦ አሁን NVMe የሚለውን አትምረጥ፣ BIOS Settings አትቀይር፣ እንዲሁም ፓርቲሽኖችን አትሰርዝ።
+
+ጥያቄዬ፦ F12 ሜኑ ውስጥ Kali የሚለውን ስትመርጥ Kali Linux ይከፈታል፣ ወይስ ወደ Windows ይመለሳል?
+
+
+1 selection
+Kali አልከፈተም ወደ ራሱ ቡት ውስጥ ይመለሳል
+እሺ፣ አሁን ችግሩን በትክክል ለመለየት እንችላለን።
+
+በLenovo ThinkPad T14s Gen 3 ላይ F12 ስትጫን Kali, Windows Boot Manager እና NVMe እንደሚታዩ ነግረኸኛል። ነገር ግን Kali ስትመርጥ አይከፈትም፣ ወደ Boot Menu ይመለሳል።
+
+ይህ የKali EFI Bootloader ችግር ወይም የBoot ፋይል ችግር ሊሆን ይችላል። ግን Kali እንደተሰረዘ ወይም GRUB መጠገን እንዳለበት ገና አላረጋገጥንም።
+
+አሁን የKali ፓርቲሽኖችን ሳንነካ የBoot ምንጩን እንመርምር።
+
+ደረጃ 2፦ በWindows ውስጥ Boot Entry እንፈትሽ
+Windows ክፈት።
+
+Start ላይ cmd ብለህ ፈልግ።
+
+Command Prompt → Run as administrator ምረጥ።
+
+ይህን ትእዛዝ አስገባ፦
+
+bcdedit /enum firmware
+ይህ የUEFI Firmware Boot ዝርዝርን ያሳያል። ለውጥ አያደርግም።
+
+5. የሚወጣውን ውጤት በቀጥታ እዚህ ላክልኝ፣ ወይም ፎቶ አንስተህ ላክ።
+
+እኔ በተለይ Windows Boot Manager፣ kali እና path የሚሉትን መስመሮች እመለከታለሁ። ከዚያ ቀጣዩን የጥገና ደረጃ እንወስናለን።
+
+ማስጠንቀቂያ፦ እስካሁን ምንም አትሰርዝ፣ GRUB እንደገና አትጫን፣ እና የBoot Order አትቀይር።
+
+
+1 selection
+C:\Windows\System32>bcdedit /enum firmware
+
+Firmware Boot Manager
+---------------------
+identifier              {fwbootmgr}
+displayorder            {fadbc97c-9a32-11f1-b81a-806e6f6e6963}
+                        {bootmgr}
+                        {cfff55da-6af0-11f1-b7fb-806e6f6e6963}
+                        {cfff55db-6af0-11f1-b7fb-806e6f6e6963}
+                        {cfff55dc-6af0-11f1-b7fb-806e6f6e6963}
+                        {cfff55dd-6af0-11f1-b7fb-806e6f6e6963}
+                        {cfff55de-6af0-11f1-b7fb-806e6f6e6963}
+                        {cfff55df-6af0-11f1-b7fb-806e6f6e6963}
+                        {cfff55e0-6af0-11f1-b7fb-806e6f6e6963}
+                        {cfff55e1-6af0-11f1-b7fb-806e6f6e6963}
+                        {cfff55e2-6af0-11f1-b7fb-806e6f6e6963}
+timeout                 0
+
+Windows Boot Manager
+--------------------
+identifier              {bootmgr}
+device                  partition=\Device\HarddiskVolume2
+path                    \EFI\Microsoft\Boot\bootmgfw.efi
+description             Windows Boot Manager
+locale                  en-US
+inherit                 {globalsettings}
+default                 {current}
+resumeobject            {99d52275-4ed0-11f0-9ebc-dfae78a9f503}
+displayorder            {current}
+toolsdisplayorder       {memdiag}
+timeout                 30
+
+Firmware Application (101fffff)
+-------------------------------
+identifier              {cfff55ce-6af0-11f1-b7fb-806e6f6e6963}
+description             Setup
+
+Firmware Application (101fffff)
+-------------------------------
+identifier              {cfff55cf-6af0-11f1-b7fb-806e6f6e6963}
+description             Boot Menu
+
+Firmware Application (101fffff)
+-------------------------------
+identifier              {cfff55d0-6af0-11f1-b7fb-806e6f6e6963}
+description             Diagnostic Splash Screen
+
+Firmware Application (101fffff)
+-------------------------------
+identifier              {cfff55d1-6af0-11f1-b7fb-806e6f6e6963}
+description             Lenovo Diagnostics
+
+Firmware Application (101fffff)
+-------------------------------
+identifier              {cfff55d2-6af0-11f1-b7fb-806e6f6e6963}
+description             Asset Information
+
+Firmware Application (101fffff)
+-------------------------------
+identifier              {cfff55d3-6af0-11f1-b7fb-806e6f6e6963}
+description             Regulatory Information
+
+Firmware Application (101fffff)
+-------------------------------
+identifier              {cfff55d4-6af0-11f1-b7fb-806e6f6e6963}
+description             ThinkShield secure wipe
+
+Firmware Application (101fffff)
+-------------------------------
+identifier              {cfff55d5-6af0-11f1-b7fb-806e6f6e6963}
+description             ThinkShield Passwordless Power-On Device Manager
+
+Firmware Application (101fffff)
+-------------------------------
+identifier              {cfff55d6-6af0-11f1-b7fb-806e6f6e6963}
+description             Wi-Fi Configuration
+
+Firmware Application (101fffff)
+-------------------------------
+identifier              {cfff55d7-6af0-11f1-b7fb-806e6f6e6963}
+description             Intel(R) MEBx
+
+Firmware Application (101fffff)
+-------------------------------
+identifier              {cfff55d8-6af0-11f1-b7fb-806e6f6e6963}
+description             Startup Interrupt Menu
+
+Firmware Application (101fffff)
+-------------------------------
+identifier              {cfff55d9-6af0-11f1-b7fb-806e6f6e6963}
+description             Rescue and Recovery
+
+Firmware Application (101fffff)
+-------------------------------
+identifier              {cfff55da-6af0-11f1-b7fb-806e6f6e6963}
+description             USB CD
+
+Firmware Application (101fffff)
+-------------------------------
+identifier              {cfff55db-6af0-11f1-b7fb-806e6f6e6963}
+description             USB FDD
+
+Firmware Application (101fffff)
+-------------------------------
+identifier              {cfff55dc-6af0-11f1-b7fb-806e6f6e6963}
+description             NVMe0
+
+Firmware Application (101fffff)
+-------------------------------
+identifier              {cfff55dd-6af0-11f1-b7fb-806e6f6e6963}
+description             USB HDD
+
+Firmware Application (101fffff)
+-------------------------------
+identifier              {cfff55de-6af0-11f1-b7fb-806e6f6e6963}
+description             PXE BOOT
+
+Firmware Application (101fffff)
+-------------------------------
+identifier              {cfff55df-6af0-11f1-b7fb-806e6f6e6963}
+description             LENOVO CLOUD
+
+Firmware Application (101fffff)
+-------------------------------
+identifier              {cfff55e0-6af0-11f1-b7fb-806e6f6e6963}
+description             ON-PREMISE
+
+Firmware Application (101fffff)
+-------------------------------
+identifier              {cfff55e1-6af0-11f1-b7fb-806e6f6e6963}
+description             Other CD
+
+Firmware Application (101fffff)
+-------------------------------
+identifier              {cfff55e2-6af0-11f1-b7fb-806e6f6e6963}
+description             Other HDD
+
+Firmware Application (101fffff)
+-------------------------------
+identifier              {cfff55e3-6af0-11f1-b7fb-806e6f6e6963}
+description             IDER BOOT CDROM
+
+Firmware Application (101fffff)
+-------------------------------
+identifier              {cfff55e4-6af0-11f1-b7fb-806e6f6e6963}
+description             IDER BOOT Floppy
+
+Firmware Application (101fffff)
+-------------------------------
+identifier              {cfff55e5-6af0-11f1-b7fb-806e6f6e6963}
+description             ATA HDD
+
+Firmware Application (101fffff)
+-------------------------------
+identifier              {cfff55e6-6af0-11f1-b7fb-806e6f6e6963}
+description             ATAPI CD
+
+Firmware Application (101fffff)
+-------------------------------
+identifier              {fadbc97c-9a32-11f1-b81a-806e6f6e6963}
+device                  partition=\Device\HarddiskVolume6
+path                    \EFI\kali\grubx64.efi
+description             kali
+
+C:\Windows\System32>
+…
+ውጤቱን አየሁ። ይህ ጠቃሚ ነው።
+
+የምርመራው ውጤት
+ከላክኸው ውጤት ሶስት ነገሮችን እናውቃለን፦
+
+Kali Boot Entry አለ። የEFI ፋይሉ \EFI\kali\grubx64.efi ተብሎ ተመዝግቧል።
+
+Windows Boot Manager እየሰራ ነው። ስለዚህ Windows መክፈት ችግር የለውም።
+
+Kali ለምን እንደማይከፈት ገና አልታወቀም። EFI መዝገቡ መኖሩ የBoot ፋይሉ በእርግጥ እንዳለ ወይም ትክክል እንደሆነ አያረጋግጥም።
+
+በተለይ displayorder ውስጥ Kali ከWindows Boot Manager በፊት ተቀምጧል። ስለዚህ ችግሩ የBoot ቅደም ተከተል ብቻ ላይሆን ይችላል።
+
+ደረጃ 3፦ የKali EFI ፋይል በእርግጥ እንዳለ እንፈትሽ
+በWindows ውስጥ ያለውን Command Prompt (Run as administrator) ክፈት። ይህን ትእዛዝ አስገባ፦
+
+dir \\?\GLOBALROOT\Device\HarddiskVolume6\EFI\kali
+ይህ ፋይሎችን ብቻ ይመለከታል፤ ምንም አይሰርዝም ወይም አይቀይርም።
+
+የሚመጣውን ውጤት ላክልኝ
+grubx64.efi ካየህ፣ የEFI ፋይሉ አለ።
+
+The system cannot find the path specified ካለ፣ ያ የተጠቀሰው መንገድ አልተገኘም። ይህ ብቻውን Kali ተሰርዟል ማለት አይደለም።
+
+Access is denied ካለ፣ የመዳረሻ ፈቃድ ችግር ሊሆን ይችላል።
+
+እስካሁን GRUB እንደገና አትጫን። የዚህን ትእዛዝ ውጤት ካየን በኋላ ቀጣዩን ደረጃ በደህና እንወስናለን።
+
+
+1 selection
+C:\Windows\System32>dir \\?\GLOBALROOT\Device\HarddiskVolume6\EFI\kali
+The filename, directory name, or volume label syntax is incorrect.
+
+C:\Windows\System32>
+እሺ፣ ይህ ስህተት የተሰጠውን የWindows መንገድ በዚህ መልኩ ማንበብ እንዳልቻለ ያሳያል። Kali EFI ፋይል ጠፍቷል ማለት አይደለም።
+
+አሁን ሌላ ደህንነቱ የተጠበቀ መንገድ እንጠቀም።
+
+ደረጃ 4፦ EFI System Partition እንፈልግ
+በAdministrator Command Prompt ውስጥ ይህን ተይብ፦
+
+mountvol
+ይህ የWindows የVolume ዝርዝርን ያሳያል። ምንም አይሰርዝም ወይም አይቀይርም።
+
+ከውጤቱ ውስጥ \\?\Volume{...}\ በሚል የሚጀምሩ መስመሮችን እና ከእነሱ በታች የሚታዩ የDrive ፊደሎችን ላክልኝ።
+
+ከዚያ EFI Partition በደህና እንለያለን። እባክህ እስከዚያ ድረስ በDisk Management ወይም BIOS ውስጥ ምንም አትቀይር።
+
+
+1 selection
+C:\Windows\System32>mountvol
+Creates, deletes, or lists a volume mount point.
+
+MOUNTVOL [drive:]path VolumeName
+MOUNTVOL [drive:]path /D
+MOUNTVOL [drive:]path /L
+MOUNTVOL [drive:]path /P
+MOUNTVOL /R
+MOUNTVOL /N
+MOUNTVOL /E
+MOUNTVOL drive: /S
+
+    path        Specifies the existing NTFS directory where the mount
+                point will reside.
+    VolumeName  Specifies the volume name that is the target of the mount
+                point.
+    /D          Removes the volume mount point from the specified directory.
+    /L          Lists the mounted volume name for the specified directory.
+    /P          Removes the volume mount point from the specified directory,
+                dismounts the volume, and makes the volume not mountable.
+                You can make the volume mountable again by creating a volume
+                mount point.
+    /R          Removes volume mount point directories and registry settings
+                for volumes that are no longer in the system.
+    /N          Disables automatic mounting of new volumes.
+    /E          Re-enables automatic mounting of new volumes.
+    /S          Mount the EFI System Partition on the given drive.
+
+Possible values for VolumeName along with current mount points are:
+
+    \\?\Volume{8afd78c5-3bdc-498d-8afe-793859fd67e6}\
+        C:\
+
+    \\?\Volume{5fecac24-484c-46d2-be52-b3a580825e38}\
+        *** NO MOUNT POINTS ***
+
+    \\?\Volume{2376badb-e89c-40fa-961b-fd4fd9218e35}\
+        D:\
+
+    \\?\Volume{ef80c9d9-cd3d-44f2-8ee2-6bef5a667284}\
+        *** NO MOUNT POINTS ***
+
+    \\?\Volume{9f64e2bc-047a-4c02-8be0-ccbc30f001b8}\
+        *** NO MOUNT POINTS ***
+
+
+C:\Windows\System32>
+…
+ጥሩ፣ ውጤቱን አየሁ። አሁን አንዳንድ የVolume ክፍሎች የDrive Letter እንደሌላቸው አይተናል። ከእነዚህ ውስጥ EFI Partition ሊኖር ይችላል፣ ግን እስካሁን የትኛው እንደሆነ አላረጋገጥንም።
+
+ደረጃ 5፦ EFI Partition በደህና እንመርምር
+በAdministrator Command Prompt ውስጥ ይህን ትእዛዝ አስገባ፦
+
+mountvol Z: /S
+ይህ የWindows የEFI System Partition ን ለጊዜው Z: በሚል Drive Letter ያሳያል። ፋይሎችን አይሰርዝም።
+
+ከዚያ ይህን አስገባ፦
+
+dir Z:\EFI
+ቀጥሎ፦
+
+dir Z:\EFI\kali
+ውጤቱን ላክልኝ
+በተለይ Z:\EFI\kali ውስጥ grubx64.efi እንዳለ እንፈትሻለን።
+
+ማስታወሻ፦ ከዚህ በፊት mountvol ማስኬድ ብቻ ነበር ያደረግኸው። አሁን ግን /S እንጨምራለን። ከፈተሽን በኋላ Kali እንደገና እንዲከፈት በሚያስችል መንገድ እንቀጥላለን።
+
